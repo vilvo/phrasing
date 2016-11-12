@@ -30,7 +30,7 @@ Lisäksi sää- ja ilmanlaatutietojen yksityiskohdat on saatavissa JSON-muodossa
 * `detailed` - true tai false - palautetaanko yksityiskohtainen data vai ei
 * `phrase` - true tai false - palautetaanko fraasi vai ei
 
-Lisäksi suunniteltiin HTTP headerin Accept-kentän käyttöä määrittämään hyväksyttävät vastaustyypit. Esimerkiksi `Accept: text/plain` pelkät vastaustiedot kun taas `Accept: applicaton/JSON` palauttaisi vastaustiedot JSON-muodossa.
+Lisäksi suunniteltiin HTTP headerin Accept-kentän käyttöä määrittämään hyväksyttävät vastaustyypit. Esimerkiksi `Accept: text/plain` pelkät vastaustiedot kun taas `Accept: application/JSON` palauttaisi vastaustiedot JSON-muodossa.
 
 #### Huomioita query-parametreistä ja paluuarvoista
 
