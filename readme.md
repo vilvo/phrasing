@@ -7,7 +7,7 @@ että rakenteellisena tietona. Palvelu toteuttaa kurssi [Palvelupohjaiset järje
 
 ## Suunnitelma
 
-Phrasing palvelu tarjoaa kyselyrajapinnan jonka tietolähteinä suunnitellaan alustavasti käytettävän [YLEn Teksti-TV APIa](http://apisuomi.fi/shop/json/yle-teksti-tv-api/) tai [Ilmatieteenlaitoksen avoimen datan APIa](https://ilmatieteenlaitos.fi/avoin-data) paikkakuntakohtaiselle säätiedolle sekä [Biomin ilmanlaaturajapintaa])(https://www.biomi.org/web/ilmanlaaturajapinta/).
+Phrasing palvelu tarjoaa kyselyrajapinnan jonka tietolähteinä suunnitellaan alustavasti käytettävän [YLEn Teksti-TV APIa](http://apisuomi.fi/shop/json/yle-teksti-tv-api/) tai [Ilmatieteenlaitoksen avoimen datan APIa](https://ilmatieteenlaitos.fi/avoin-data) paikkakuntakohtaiselle säätiedolle sekä [Biomin ilmanlaaturajapintaa](https://www.biomi.org/web/ilmanlaaturajapinta/).
 
 Phrasing-palvelu yhdistää ja muokkaa tietolähteiden avointa dataa tarjoten sitä sekä fraaseina että rakenteellisesti.
 
