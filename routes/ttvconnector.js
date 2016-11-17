@@ -1,6 +1,6 @@
 var request = require('request');
 
-var APIKEY="insert-your-apikey-here";
+var APIKEY = process.env.TTV_KEY || "insert-your-apikey-here";
 var TTV_WEATHER="http://beta.yle.fi/api/ttvcontent/?a="+APIKEY+"&p=402&c=true";
 
 var weather = function (city, callback) {
