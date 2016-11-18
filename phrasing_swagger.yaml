@@ -1,0 +1,66 @@
+swagger: '2.0'
+info:
+  title: phrasing API
+  description:  Weather and air quality information as phrases and structural data.
+  version: "0.0.1"
+host: phrasing-weather.herokuapp.com
+schemes:
+  - https
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /weather:
+    get:
+      summary: Weather and air quality info
+      description: |
+        The weather endpoint returns information about the weather and air quality.
+        The response includes the details at a given location.
+      parameters:
+        - name: city
+          in: query
+          description: City of the weather info.
+          required: true
+          type: string
+      tags:
+        - Details
+      responses:
+        200:
+          description: An array of weather info for the city
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Weather'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Weather:
+    type: object
+    properties:
+      city:
+        type: string
+        description: City of the weather query.
+      temperature:
+        type: integer
+        description: Temperature in celsius.
+      windDirection:
+        type: string
+        description: Direction of the wind in N|NE|E|SE|S|SW|W|NW
+      windSpeed:
+        type: integer
+        description: Speed of the wind in meters per second.
+      clouds:
+        type: string
+        description: Cloud coverage described.
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
