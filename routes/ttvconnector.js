@@ -21,8 +21,7 @@ var weather = function (city, callback) {
                     windDirection: weather[3].trim(),
                     windSpeed: weather[4].trim(),
                     city: weather[1].trim(),
-                    clouds: weather[5].trim(),
-                    phrase: "Sää tänään Tampereella: pakkasta neljä astetta, tuuli etelästä neljä metriä sekunnissa, pilvistä. Ilmanlaatu on hyvä."
+                    clouds: weather[5].trim().toLowerCase()
                 };
                 callback(undefined, result);
             }
