@@ -1,12 +1,22 @@
 var express = require('express');
 var router = express.Router();
 var ttv = require('./ttvconnector.js');
+var biomi = require( './biomiConnector.js' )
 
 
 // hae sää- ja ilmanlaatutiedot
 router.get('/', function(req, res, next) {
-  ttv.weather("Tampere", function(err, result) {
-      res.send( result );
+    var city = 'Tampere';
+  ttv.weather( city, function(err, result) {
+      biomi.getAirqualityForCity( city, function( err, biomiResult ) {
+          if ( err ) {
+              return res.send( err.message );
+          }
+          
+          result.airquality = biomiResult;
+          res.send( result );
+      })
+      
   });
 });
 
