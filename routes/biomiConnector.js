@@ -36,10 +36,18 @@ function getAirqualityForStation( station, callback ) {
             return callback( new Error( response.statusCode +' status from biomi API'))
         }
         
-        var measurement = body.latest;
-        measurement.station = station.location;
-        delete measurement.parts;
+        if ( body.error ) {
+            var measurement = { error: true, message: body.message };
+        }
         
+        else {
+            var measurement = body.latest;
+            measurement.error = false;
+            delete measurement.parts;
+        }
+        
+        measurement.station = station.location;
+
         callback( null, measurement );
     });
 }
