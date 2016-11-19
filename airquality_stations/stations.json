@@ -1,0 +1,519 @@
+{
+   "Turku": [
+      {
+         "city": "Turku", 
+         "id": 701, 
+         "location": "Oriketo"
+      }, 
+      {
+         "city": "Turku", 
+         "id": 460, 
+         "location": "Ruissalo Saaronniemi"
+      }, 
+      {
+         "city": "Turku", 
+         "id": 186, 
+         "location": "Turun kauppatori"
+      }
+   ], 
+   "Espoo": [
+      {
+         "latitude": 60.22025897, 
+         "city": "Espoo", 
+         "id": 841, 
+         "longitude": 24.81118349, 
+         "location": "Leppävaara 4"
+      }, 
+      {
+         "latitude": 60.313288, 
+         "city": "Espoo", 
+         "id": 208, 
+         "longitude": 24.689477, 
+         "location": "Luukki"
+      }
+   ], 
+   "Naantali": [
+      {
+         "city": "Naantali", 
+         "id": 444, 
+         "location": "Naantalin keskusta"
+      }
+   ], 
+   "Luoto": [
+      {
+         "city": "Luoto", 
+         "id": 469, 
+         "location": "Vikarholmen"
+      }
+   ], 
+   "Länsi-Turunmaa": [
+      {
+         "city": "Länsi-Turunmaa", 
+         "id": 845, 
+         "location": "Parainen"
+      }, 
+      {
+         "city": "Länsi-Turunmaa", 
+         "id": 349, 
+         "location": "Utö"
+      }
+   ], 
+   "Tampere": [
+      {
+         "city": "Tampere", 
+         "id": 838, 
+         "location": "Epila 2"
+      }, 
+      {
+         "city": "Tampere", 
+         "id": 801, 
+         "location": "Kaleva"
+      }, 
+      {
+         "city": "Tampere", 
+         "id": 721, 
+         "location": "Linja-autoasema"
+      }, 
+      {
+         "city": "Tampere", 
+         "id": 549, 
+         "location": "Pirkankatu"
+      }
+   ], 
+   "Rauma": [
+      {
+         "city": "Rauma", 
+         "id": 510, 
+         "location": "Hallikatu"
+      }
+   ], 
+   "Kouvola": [
+      {
+         "city": "Kouvola", 
+         "id": 574, 
+         "location": "Kouvola, Käsityöläiskatu"
+      }, 
+      {
+         "city": "Kouvola", 
+         "id": 86, 
+         "location": "Kuusankoski, Urheilukentäntie"
+      }
+   ], 
+   "Järvenpää": [
+      {
+         "city": "Järvenpää", 
+         "id": 868, 
+         "location": "Järvenpää2"
+      }
+   ], 
+   "Kokkola": [
+      {
+         "city": "Kokkola", 
+         "id": 404, 
+         "location": "Keskusta, Pitkänsillankatu"
+      }, 
+      {
+         "city": "Kokkola", 
+         "id": 227, 
+         "location": "Ykspihlaja"
+      }
+   ], 
+   "Kajaani": [
+      {
+         "city": "Kajaani", 
+         "id": 602, 
+         "location": "Kajaanin keskusta 3"
+      }
+   ], 
+   "Vantaa": [
+      {
+         "latitude": 60.289946, 
+         "city": "Vantaa", 
+         "id": 370, 
+         "longitude": 25.039532, 
+         "location": "Tikkurila 3"
+      }
+   ], 
+   "Joensuu": [
+      {
+         "city": "Joensuu", 
+         "id": 511, 
+         "location": "Koskikatu 1"
+      }
+   ], 
+   "Ilomantsi": [
+      {
+         "city": "Ilomantsi", 
+         "id": 428, 
+         "location": "Ilomantsi"
+      }
+   ], 
+   "Imatra": [
+      {
+         "city": "Imatra", 
+         "id": 424, 
+         "location": "Mansikkala"
+      }, 
+      {
+         "city": "Imatra", 
+         "id": 273, 
+         "location": "Pelkolan tulliasema, Raja"
+      }, 
+      {
+         "city": "Imatra", 
+         "id": 80, 
+         "location": "Rautionkylä"
+      }, 
+      {
+         "city": "Imatra", 
+         "id": 433, 
+         "location": "Teppanala"
+      }
+   ], 
+   "Lappeenranta": [
+      {
+         "city": "Lappeenranta", 
+         "id": 283, 
+         "location": "Ihalainen"
+      }, 
+      {
+         "city": "Lappeenranta", 
+         "id": 434, 
+         "location": "Joutsenon keskusta"
+      }, 
+      {
+         "city": "Lappeenranta", 
+         "id": 606, 
+         "location": "Lappeenrannan keskusta 4"
+      }, 
+      {
+         "city": "Lappeenranta", 
+         "id": 378, 
+         "location": "Lauritsala"
+      }, 
+      {
+         "city": "Lappeenranta", 
+         "id": 379, 
+         "location": "Pulp"
+      }, 
+      {
+         "city": "Lappeenranta", 
+         "id": 280, 
+         "location": "Tirilä, Pekkasenkatu"
+      }
+   ], 
+   "Raahe": [
+      {
+         "city": "Raahe", 
+         "id": 833, 
+         "location": "Merikatu"
+      }, 
+      {
+         "city": "Raahe", 
+         "id": 570, 
+         "location": "Raahen keskusta 2"
+      }
+   ], 
+   "Harjavalta": [
+      {
+         "city": "Harjavalta", 
+         "id": 184, 
+         "location": "Kaleva"
+      }, 
+      {
+         "city": "Harjavalta", 
+         "id": 179, 
+         "location": "Pirkkala"
+      }
+   ], 
+   "Ähtäri": [
+      {
+         "city": "Ähtäri", 
+         "id": 372, 
+         "location": "Ähtäri 2"
+      }
+   ], 
+   "Kotka": [
+      {
+         "city": "Kotka", 
+         "id": 62, 
+         "location": "Kirjastotalo"
+      }, 
+      {
+         "city": "Kotka", 
+         "id": 438, 
+         "location": "Rauhala"
+      }
+   ], 
+   "Varkaus": [
+      {
+         "city": "Varkaus", 
+         "id": 557, 
+         "location": "Psaari 2"
+      }, 
+      {
+         "city": "Varkaus", 
+         "id": 124, 
+         "location": "Pääterveysasema"
+      }, 
+      {
+         "city": "Varkaus", 
+         "id": 463, 
+         "location": "Taulumäki (toripaviljonki)"
+      }
+   ], 
+   "Seinäjoki": [
+      {
+         "city": "Seinäjoki", 
+         "id": 848, 
+         "location": "Vapaudentie 6a"
+      }
+   ], 
+   "Pietarsaari": [
+      {
+         "city": "Pietarsaari", 
+         "id": 397, 
+         "location": "Bottenviksvägen"
+      }
+   ], 
+   "Utsjoki": [
+      {
+         "city": "Utsjoki", 
+         "id": 553, 
+         "location": "Kevo"
+      }
+   ], 
+   "Kaarina": [
+      {
+         "city": "Kaarina", 
+         "id": 569, 
+         "location": "Kaarina"
+      }
+   ], 
+   "Helsinki": [
+      {
+         "latitude": 60.1874667, 
+         "city": "Helsinki", 
+         "id": 425, 
+         "longitude": 24.9505167, 
+         "location": "Kallio 2"
+      }, 
+      {
+         "latitude": 60.169643, 
+         "city": "Helsinki", 
+         "id": 564, 
+         "longitude": 24.939261, 
+         "location": "Mannerheimintie"
+      }, 
+      {
+         "city": "Helsinki", 
+         "id": 580, 
+         "location": "Smear III, Kumpula"
+      }, 
+      {
+         "latitude": 60.193665, 
+         "city": "Helsinki", 
+         "id": 206, 
+         "longitude": 24.963942, 
+         "location": "Vallila 1"
+      }, 
+      {
+         "latitude": 60.223886, 
+         "city": "Helsinki", 
+         "id": 781, 
+         "longitude": 25.102528, 
+         "location": "Vartiokylä Huivipolku"
+      }
+   ], 
+   "Jyväskylä": [
+      {
+         "city": "Jyväskylä", 
+         "id": 464, 
+         "location": "Lyseo 2"
+      }, 
+      {
+         "city": "Jyväskylä", 
+         "id": 431, 
+         "location": "Palokka 2"
+      }
+   ], 
+   "Lohja": [
+      {
+         "city": "Lohja", 
+         "id": 761, 
+         "location": "Nahkurintori 2"
+      }
+   ], 
+   "Raisio": [
+      {
+         "city": "Raisio", 
+         "id": 821, 
+         "location": "Kaanaan koulu"
+      }, 
+      {
+         "city": "Raisio", 
+         "id": 120, 
+         "location": "Raision keskusta"
+      }
+   ], 
+   "Äänekoski": [
+      {
+         "city": "Äänekoski", 
+         "id": 548, 
+         "location": "Äänekoski Hiski"
+      }
+   ], 
+   "Hämeenlinna": [
+      {
+         "city": "Hämeenlinna", 
+         "id": 368, 
+         "location": "Evo (Lammi)"
+      }, 
+      {
+         "city": "Hämeenlinna", 
+         "id": 853, 
+         "location": "Niittykatu"
+      }
+   ], 
+   "Kuusamo": [
+      {
+         "city": "Kuusamo", 
+         "id": 352, 
+         "location": "Oulanka"
+      }
+   ], 
+   "Oulu": [
+      {
+         "city": "Oulu", 
+         "id": 446, 
+         "location": "Oulun keskusta 2"
+      }, 
+      {
+         "city": "Oulu", 
+         "id": 301, 
+         "location": "Pyykösjärvi"
+      }
+   ], 
+   "Pori": [
+      {
+         "city": "Pori", 
+         "id": 588, 
+         "location": "Porin keskusta"
+      }
+   ], 
+   "Valkeakoski": [
+      {
+         "city": "Valkeakoski", 
+         "id": 390, 
+         "location": "Hiekkatekonurmi"
+      }, 
+      {
+         "city": "Valkeakoski", 
+         "id": 392, 
+         "location": "Valkeakosken terveyskeskus"
+      }
+   ], 
+   "Lahti": [
+      {
+         "city": "Lahti", 
+         "id": 66, 
+         "location": "Kisapuisto"
+      }, 
+      {
+         "city": "Lahti", 
+         "id": 455, 
+         "location": "Laune"
+      }, 
+      {
+         "city": "Lahti", 
+         "id": 867, 
+         "location": "Satulakatu"
+      }, 
+      {
+         "city": "Lahti", 
+         "id": 74, 
+         "location": "Tori"
+      }, 
+      {
+         "city": "Lahti", 
+         "id": 67, 
+         "location": "Vesku 11"
+      }
+   ], 
+   "Porvoo": [
+      {
+         "city": "Porvoo", 
+         "id": 339, 
+         "location": "Mustijoki"
+      }, 
+      {
+         "city": "Porvoo", 
+         "id": 846, 
+         "location": "Nyby"
+      }
+   ], 
+   "Inari": [
+      {
+         "city": "Inari", 
+         "id": 357, 
+         "location": "Raja-Jooseppi"
+      }
+   ], 
+   "Jämsä": [
+      {
+         "city": "Jämsä", 
+         "id": 78, 
+         "location": "Lääkäritalo"
+      }
+   ], 
+   "Heinola": [
+      {
+         "city": "Heinola", 
+         "id": 513, 
+         "location": "Heinolan keskusta"
+      }
+   ], 
+   "Muonio": [
+      {
+         "city": "Muonio", 
+         "id": 356, 
+         "location": "Sammaltunturi"
+      }
+   ], 
+   "Savonlinna": [
+      {
+         "city": "Savonlinna", 
+         "id": 601, 
+         "location": "Olavinkatu"
+      }
+   ], 
+   "Jokioinen": [
+      {
+         "city": "Jokioinen", 
+         "id": 453, 
+         "location": "Jokioinen"
+      }
+   ], 
+   "Kuopio": [
+      {
+         "city": "Kuopio", 
+         "id": 363, 
+         "location": "Kasarmipuisto"
+      }, 
+      {
+         "city": "Kuopio", 
+         "id": 558, 
+         "location": "Maaherrankatu"
+      }, 
+      {
+         "city": "Kuopio", 
+         "id": 294, 
+         "location": "Sorsasalo"
+      }, 
+      {
+         "city": "Kuopio", 
+         "id": 839, 
+         "location": "Tasavallankatu"
+      }
+   ]
+}
