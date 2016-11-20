@@ -1,8 +1,8 @@
 # Oppimispäiväkirja
 
 ## viikko 14.11.-20.11.
-* next: REST-rajapinnan määrittelyn saattaminen kattavammaksi. Alustava phrasing-moduuli.
-* done: FMI:n, TTV:n ja Biomin APIen testaus. Connectorit TTVn ja Biomin APIeihin. (VI ja OH)
+* next: REST-rajapinnan määrittelyn saattaminen kattavammaksi. Alustava rajapinnan toteutus ja phrasing-moduuli.
+* done: FMI:n, TTV:n ja Biomin APIen testaus. Connectorit TTVn ja Biomin APIeihin. Alustava sää- ja ilmanlaatutietojen yhdistäminen (VI ja OH)
 * done: Auto-deployment Herokuun. REST-rajapinnan hahmottelu alustavaan swagger.io spesifikaatioon. (VI)
 
 ## viikko 7.11.-13.11.
