@@ -5,7 +5,7 @@ var phrasing = require('./phrasing-fi.js');
 
 // hae sää- ja ilmanlaatutiedot
 function getData(req, res) {
-    var city = 'Tampere';
+    var city = req.swagger.params.city.value;
     async.parallel( {
         weather: function ( callback ) {
             ttv.weather( city, callback );
