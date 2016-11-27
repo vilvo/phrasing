@@ -30,7 +30,7 @@ describe('phrasing', function() {
       assert.equal(undefined, phrasing.lukukirjaimiksi(100));
     });
   });
-  describe('#phrase Tampere with const weather input data', function(){
+  describe('#phrase Tampere with const input data', function(){
     it('should phrase with const input data T1', function() {
       const T1 = {
           temperature: -1,
@@ -54,6 +54,11 @@ describe('phrasing', function() {
       const s = "Sää tänään Turussa: yksi aste pakkasta, " +
                 "tuuli pohjoisesta kuusi metriä sekunnissa, melko pilvistä."
       assert.equal(s, phrasing.phrase(T2), undefined);
+    });
+    it('should phrase with const air quality data', function(){
+      const AQ = [ { time: 11, index: 1, FI: "hyvä", EN: "good",
+                     error: false, station: "Linja-autoasema" } ]
+      assert.equal("Ilmanlaatu on hyvä.", phrasing.phrase(undefined, AQ));
     });
   });
 });

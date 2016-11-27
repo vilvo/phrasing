@@ -1,7 +1,7 @@
 var util = require('util');
 
 var w = "Sää tänään %s: %s %s %s, %s, %s."
-var a = "Ilmanlaatu on {0}."
+var a = "Ilmanlaatu on %s."
 
 const yksikotmap = {
   '0': 'nolla', '1':'yksi', '2':'kaksi', '3':'kolme', '4':'neljä',
@@ -73,15 +73,26 @@ function pilvisyys(clouds) {
     return clouds;
 }
 
+function ilmanlaatu(airquality) {
+  // TODO: process airquality data from the nearest station?
+  // defaults to the first station in the list
+  return airquality[0].FI;
+}
+
 var phrase = function (weather, airquality) {
+  var pw = '', paq = '';
   if (weather == undefined && airquality == undefined)
     return undefined;
-  return util.format(w, taivutusmuoto(weather.city),
+  if (weather != undefined)
+    pw = util.format(w, taivutusmuoto(weather.city),
                         lukukirjaimiksi(Math.abs(weather.temperature)),
                         asteita(weather.temperature),
                         lampotila(weather.temperature),
                         tuuli(weather.windSpeed, weather.windDirection),
                         pilvisyys(weather.clouds));
+  if (airquality != undefined)
+    paq = util.format(a, ilmanlaatu(airquality));
+  return pw + paq;
 };
 
 module.exports.phrase = phrase;
