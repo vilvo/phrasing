@@ -1,5 +1,5 @@
 var assert = require('assert');
-var phrasing = require('../routes/phrasing-fi.js');
+var phrasing = require('../api/controllers/phrasing-fi.js');
 
 describe('phrasing', function() {
   describe('#phrase undefined, undefined', function() {
