@@ -1,12 +1,10 @@
-var express = require('express');
-var router = express.Router();
 var async = require('async');
 var ttv = require('./ttvconnector.js');
 var biomi = require('./biomiConnector.js');
 var phrasing = require('./phrasing-fi.js');
 
 // hae sää- ja ilmanlaatutiedot
-router.get('/', function(req, res, next) {
+function getData(req, res) {
     var city = 'Tampere';
     async.parallel( {
         weather: function ( callback ) {
@@ -25,6 +23,6 @@ router.get('/', function(req, res, next) {
                                                  results.airquality);
         res.send( results.weather );
     });
-});
+}
 
-module.exports = router;
+module.exports = { getData: getData };

@@ -3,16 +3,25 @@ info:
   title: phrasing API
   description:  Weather and air quality information as phrases and structural data.
   version: "0.0.1"
-host: phrasing-weather.herokuapp.com
+# during dev, should point to your local machine
+host: localhost:10010
+#host: phrasing-weather.herokuapp.com
 schemes:
+  # tip: remove http to make production-grade
   - https
+  - http
 basePath: /v1
 produces:
   - application/json
 paths:
   /weather:
+    # binds a127 app logic to a route
+    # vastaa api/controllers hakemistossa olevaa moduulia
+    x-swagger-router-controller: api
     get:
       summary: Weather and air quality info
+      # vastaa api moduulin funktiota
+      operationId: getData
       description: |
         The weather endpoint returns information about the weather and air quality.
         The response includes the details at a given location.
@@ -28,9 +37,7 @@ paths:
         200:
           description: An array of weather info for the city
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Weather'
+            $ref: '#/definitions/Weather'
         default:
           description: Unexpected error
           schema:
@@ -43,13 +50,13 @@ definitions:
         type: string
         description: City of the weather query.
       temperature:
-        type: integer
+        type: string
         description: Temperature in celsius.
       windDirection:
         type: string
         description: Direction of the wind in N|NE|E|SE|S|SW|W|NW
       windSpeed:
-        type: integer
+        type: string
         description: Speed of the wind in meters per second.
       clouds:
         type: string
