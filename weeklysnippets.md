@@ -1,5 +1,11 @@
 # Oppimispäiväkirja
 
+## viikko 21.11.-27.11.
+
+* next: clientin toteutus, parempi virheiden käsittely 
+* done: ohjelman muokkaaminen swagger node projektiksi (OH)
+* done: phrasing moduulin toteuttaminen (VI)
+
 ## viikko 14.11.-20.11.
 * next: REST-rajapinnan määrittelyn saattaminen kattavammaksi. Alustava rajapinnan toteutus ja phrasing-moduuli.
 * done: FMI:n, TTV:n ja Biomin APIen testaus. Connectorit TTVn ja Biomin APIeihin. Alustava sää- ja ilmanlaatutietojen yhdistäminen (VI ja OH)
