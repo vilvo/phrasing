@@ -47,6 +47,8 @@ function taivutusmuoto(kaupunki) {
       return kaupunki + "ella"
   else if (kaupunki.indexOf('Turku') != -1)
       return "Turussa"
+  else
+      return kaupunki
 }
 
 function lampotila(lampo) {
