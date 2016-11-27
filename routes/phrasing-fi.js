@@ -80,19 +80,21 @@ function ilmanlaatu(airquality) {
 }
 
 var phrase = function (weather, airquality) {
-  var pw = '', paq = '';
+  var r = '';
   if (weather == undefined && airquality == undefined)
     return undefined;
   if (weather != undefined)
-    pw = util.format(w, taivutusmuoto(weather.city),
-                        lukukirjaimiksi(Math.abs(weather.temperature)),
-                        asteita(weather.temperature),
-                        lampotila(weather.temperature),
-                        tuuli(weather.windSpeed, weather.windDirection),
-                        pilvisyys(weather.clouds));
+    r = r + util.format(w, taivutusmuoto(weather.city),
+                           lukukirjaimiksi(Math.abs(weather.temperature)),
+                           asteita(weather.temperature),
+                           lampotila(weather.temperature),
+                           tuuli(weather.windSpeed, weather.windDirection),
+                           pilvisyys(weather.clouds));
+    if (airquality != undefined)
+      r = r + " ";
   if (airquality != undefined)
-    paq = util.format(a, ilmanlaatu(airquality));
-  return pw + paq;
+    r = r + util.format(a, ilmanlaatu(airquality));
+  return r;
 };
 
 module.exports.phrase = phrase;
