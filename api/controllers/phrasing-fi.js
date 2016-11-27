@@ -5,7 +5,7 @@ var a = "Ilmanlaatu on %s."
 
 const yksikotmap = {
   '0': 'nolla', '1':'yksi', '2':'kaksi', '3':'kolme', '4':'neljä',
-  '5':'viisi', '6':'kuusi', '7':'seitsämän', '8':'kahdeksan',
+  '5':'viisi', '6':'kuusi', '7':'seitsemän', '8':'kahdeksan',
   '9':'yhdeksän', '10': 'kymmenen'
 };
 const kymmenetmap = {
@@ -76,9 +76,16 @@ function pilvisyys(clouds) {
 }
 
 function ilmanlaatu(airquality) {
-  // TODO: process airquality data from the nearest station?
-  // defaults to the first station in the list
-  return airquality[0].FI;
+  // process airquality data from the first station on
+  // until there is a measurement
+  laatu = "ei ole saatavilla";
+  for (i = 0; i < airquality.length; i++) {
+    if (airquality[i].error == false) {
+      laatu = airquality[i].FI;
+      break;
+    }
+  }
+  return laatu;
 }
 
 var phrase = function (weather, airquality) {

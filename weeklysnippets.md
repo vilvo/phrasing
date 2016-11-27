@@ -2,9 +2,9 @@
 
 ## viikko 21.11.-27.11.
 
-* next: clientin toteutus, parempi virheiden käsittely 
+* next: clientin toteutus, parempi virheiden käsittely
 * done: ohjelman muokkaaminen swagger node projektiksi (OH)
-* done: phrasing moduulin toteuttaminen (VI)
+* done: phrasing moduulin toteuttaminen testeineen (VI)
 
 ## viikko 14.11.-20.11.
 * next: REST-rajapinnan määrittelyn saattaminen kattavammaksi. Alustava rajapinnan toteutus ja phrasing-moduuli.
