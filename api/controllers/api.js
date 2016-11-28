@@ -15,7 +15,7 @@ function getData(req, res) {
         }
     }, function ( err, results ) {
         if ( err ) {
-            return res.send( err.message );
+            return res.send( { message: err.message });
         }
 
         results.weather.airquality = results.airquality;
