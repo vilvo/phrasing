@@ -15,7 +15,7 @@ catch ( err ) {
 function getAirqualityForCity( city, callback ) {
     var cityStations = stations[city];
     if ( cityStations === undefined ) {
-        callback( new Error(  'No stations for ' +city ));
+        return callback(  null, [] );
     }
     
     async.map( cityStations, getAirqualityForStation, callback );
