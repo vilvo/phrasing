@@ -14,6 +14,9 @@ describe('phrasing', function() {
     it('should phrase 11 to "yksitoista"', function() {
       assert.equal("yksitoista", phrasing.lukukirjaimiksi(11));
     });
+    it('should phrase 13 to "kolmetoista"', function() {
+      assert.equal("kolmetoista", phrasing.lukukirjaimiksi(13));
+    });
     it('should phrase 20 to "kaksikymmentä"', function() {
       assert.equal("kaksikymmentä", phrasing.lukukirjaimiksi(20));
     });

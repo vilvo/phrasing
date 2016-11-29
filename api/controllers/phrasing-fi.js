@@ -23,7 +23,7 @@ function lukukirjaimiksi(luku) {
   if (luku >= 0 && luku < 11)
     return yksikotmap[luku];
   else if (luku > 10 && luku < 20)
-    return yksikotmap[1] + kymmenetmap[1];
+    return yksikotmap[luku%10] + kymmenetmap[1];
   else if (luku >= 20 && luku < 99) {
     var asteet = yksikotmap[Math.floor(luku/10)] + kymmenetmap[2];
     var ykkoset = luku % 10;
