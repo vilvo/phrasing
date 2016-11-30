@@ -4,8 +4,8 @@ info:
   description:  Weather and air quality information as phrases and structural data.
   version: "0.0.1"
 # during dev, should point to your local machine
-host: localhost:10010
-#host: phrasing-weather.herokuapp.com
+#host: localhost:10010
+host: phrasing-weather.herokuapp.com
 schemes:
   # tip: remove http to make production-grade
   - https
@@ -38,7 +38,7 @@ paths:
         - Details
       responses:
         200:
-          description: An array of weather info for the city
+          description: An object containing weather and airquality info for the city
           schema:
             $ref: '#/definitions/Weather'
         default:
