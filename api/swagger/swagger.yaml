@@ -14,9 +14,6 @@ basePath: /v1
 produces:
   - application/json
 paths:
-  # /swagger palauttaa tämän swagger kuvauksen JSON muodossa
-  /swagger:
-    x-swagger-pipe: swagger_raw
   /weather:
     # binds a127 app logic to a route
     # vastaa api/controllers hakemistossa olevaa moduulia
