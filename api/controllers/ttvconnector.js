@@ -15,13 +15,13 @@ var weather = function (city, callback) {
       var info = JSON.parse(body);
       info.pages[0].subpages[0].content.split('\n').forEach(function(item){
             if (item.indexOf(city) !== -1) {
-                weather = item.split(new RegExp("\[[a-z]{4,}\]"));
+                var weatherInfo = item.split(new RegExp("\[[a-z]{4,}\]"));
                 var result = {
-                    temperature: weather[2].trim(),
-                    windDirection: weather[3].trim(),
-                    windSpeed: weather[4].trim(),
-                    city: weather[1].trim(),
-                    clouds: weather[5].trim().toLowerCase()
+                    temperature: weatherInfo[2].trim(),
+                    windDirection: weatherInfo[3].trim(),
+                    windSpeed: weatherInfo[4].trim(),
+                    city: weatherInfo[1].trim(),
+                    clouds: weatherInfo[5].trim().toLowerCase()
                 };
                 callback(undefined, result);
             }
