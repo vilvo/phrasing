@@ -39,10 +39,10 @@
 			 * Documentation https://docs.angularjs.org/api/ng/service/$http
 			 */
 			$scope.fetchPhrase = function () {
-				var data = $scope.textInput;
+				var city = $scope.textInput;
 				$http({
 				  method: 'GET',
-				  url: window.location.origin+'/v1/weather?city=' + data
+				  url: window.location.origin+'/v1/stations/' + city
 				}).then(function successCallback(response) {
 						$scope.cities.unshift(response.data.phrase);
 						if ('speechSynthesis' in window) {
