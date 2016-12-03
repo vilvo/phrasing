@@ -61,6 +61,29 @@ definitions:
       clouds:
         type: string
         description: Cloud coverage described.
+      airquality:
+         type: array
+         items:
+           type: object
+           properties:
+              station:
+                 type: string
+                 description: name of the airquality measuring station
+              index:
+                 type: integer
+                 description: Air quality represented as an integer from 1 (good) to 5
+              FI:
+                 type: string
+                 description: Finnish  word describing the airquality.
+              EN:
+                 type: string
+                 description: English  word describing the airquality.
+              error:
+                 type: boolean
+                 description: Is there a measurement available from this station.
+              time:
+                 type: integer
+                 description: The hour of the measurement as an integer from 0 to 23
   Error:
     type: object
     properties:
