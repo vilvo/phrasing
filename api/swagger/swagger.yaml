@@ -46,6 +46,12 @@ definitions:
   Weather:
     type: object
     properties:
+      hasWeather:
+        type: boolean
+        description: Does the response contain weather information.
+      hasAirquality:
+         type: boolean
+         description: Does the response contain airquality information.
       city:
         type: string
         description: City of the weather query.
