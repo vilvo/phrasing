@@ -1,0 +1,92 @@
+<html lang="en" >
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body ng-app="ExampleApp" ng-cloak>
+	<div ng-controller="pageCtrl">
+		<md-list>
+			<md-list-item ng-repeat="city in cities track by $index">
+				<p> {{ city }} </p>
+				<!-- <md-checkbox class="md-secondary"></md-checkbox> -->
+			</md-list-item>
+		</md-list>
+
+		<md-input-container class="md-block" flex-gt-sm>
+			<label>Paikkakunta</label>
+			<input ng-model="textInput">
+		</md-input-container>
+		<md-button ng-click="fetchPhrase()" class="md-raised md-primary">Hae fraasi</md-button>
+		<!-- <md-button ng-click="fetchItems()" class="md-raised md-primary">Fetch orders</md-button> -->
+	</div>
+
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+	<!-- Your application bootstrap  -->
+	<script type="text/javascript">
+		var app = angular.module('ExampleApp', ['ngMaterial']);
+
+		app.controller("pageCtrl", function($scope, $http) {
+			$scope.cities = []; //"Helsinki", "Tampere"];
+			/*
+			 * Documentation https://docs.angularjs.org/api/ng/service/$http
+			 */
+			$scope.fetchPhrase = function () {
+				var data = $scope.textInput;
+				$http({
+				  method: 'GET',
+				  url: window.location.origin+'/v1/weather?city=' + data
+				}).then(function successCallback(response) {
+						$scope.cities.unshift(response.data.phrase);
+						if ('speechSynthesis' in window) {
+							var voices = window.speechSynthesis.getVoices();
+							var msg = new SpeechSynthesisUtterance();
+							msg.voice = voices[4]; // spanish
+							msg.voiceURI = 'native';
+							msg.volume = 1; // 0 to 1
+							msg.rate = 0.9; // 0.1 to 10
+							msg.pitch = 1; //0 to 2
+							msg.text = response.data.phrase;
+							msg.lang = 'en-US';
+							speechSynthesis.speak(msg);
+						}
+				  }, function errorCallback(response) {
+				    // called asynchronously if an error occurs
+				    // or server returns response with an error status.
+				  });
+
+				$scope.textInput = "";
+			}
+
+			$scope.fetchItems = function () {
+				/*
+				 * Rest interface documentation for mongodb: https://docs.mongodb.com/ecosystem/tools/http-interfaces/#simple-rest-api
+				 * Remember --rest command line switch!
+				 */
+				$http.get(window.location.href+'ordersDB/orders/?filter_ordered=true').then(function(response) {
+					// Get data
+					content = angular.fromJson(response.data);
+
+					// Prepare array for switch to avoid multiple angular digests
+					var newRows = [];
+
+					// Push content
+					content.rows.forEach(function(row) {
+						newRows.push(row.name);
+					});
+
+					// Swap content
+					$scope.orders = newRows;
+				});
+			}
+		});
+		</script>
+</body>
+</html>
