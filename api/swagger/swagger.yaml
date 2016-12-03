@@ -14,7 +14,7 @@ basePath: /v1
 produces:
   - application/json
 paths:
-  /weather:
+  /stations/{city}:
     # binds a127 app logic to a route
     # vastaa api/controllers hakemistossa olevaa moduulia
     x-swagger-router-controller: api
@@ -27,7 +27,7 @@ paths:
         The response includes the details at a given location.
       parameters:
         - name: city
-          in: query
+          in: path
           description: City of the weather info.
           required: true
           type: string
