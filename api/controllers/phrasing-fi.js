@@ -1,7 +1,7 @@
 var util = require('util');
 
 var w = "Sää tänään %s: %s %s %s, %s, %s."
-var a = "Ilmanlaatu on %s."
+var a = "Ilmanlaatu %s."
 
 const yksikotmap = {
   '0': 'nolla', '1':'yksi', '2':'kaksi', '3':'kolme', '4':'neljä',
@@ -81,7 +81,7 @@ function ilmanlaatu(airquality) {
   laatu = "ei ole saatavilla";
   for (i = 0; i < airquality.length; i++) {
     if (airquality[i].error == false) {
-      laatu = airquality[i].FI;
+      laatu = "on " + airquality[i].FI;
       break;
     }
   }
