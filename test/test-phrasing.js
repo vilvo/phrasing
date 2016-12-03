@@ -42,7 +42,7 @@ describe('phrasing', function() {
           city: 'Tampere',
           clouds: 'lumisadetta'
       };
-      const s = "Sää tänään Tampereella: yksi aste pakkasta, " +
+      const s = "Tampere: yksi aste pakkasta, " +
                 "tuuli luoteesta neljä metriä sekunnissa, lumisadetta."
       assert.equal(s, phrasing.phrase(T1), undefined);
     });
@@ -54,7 +54,7 @@ describe('phrasing', function() {
           city: 'Turku',
           clouds: 'melk.pilvistä'
       };
-      const s = "Sää tänään Turussa: yksi aste pakkasta, " +
+      const s = "Turku: yksi aste pakkasta, " +
                 "tuuli pohjoisesta kuusi metriä sekunnissa, melko pilvistä."
       assert.equal(s, phrasing.phrase(T2), undefined);
     });

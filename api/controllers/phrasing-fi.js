@@ -1,6 +1,6 @@
 var util = require('util');
 
-var w = "Sää tänään %s: %s %s %s, %s, %s."
+var w = "%s: %s %s %s, %s, %s."
 var a = "Ilmanlaatu %s."
 
 const yksikotmap = {
@@ -40,15 +40,6 @@ function asteita(lampo) {
     return a
   else
     return a + "tta"
-}
-
-function taivutusmuoto(kaupunki) {
-  if (kaupunki == 'Tampere')
-      return kaupunki + "ella"
-  else if (kaupunki.indexOf('Turku') != -1)
-      return "Turussa"
-  else
-      return kaupunki
 }
 
 function lampotila(lampo) {
@@ -93,7 +84,7 @@ var phrase = function (weather, airquality) {
   if (weather == undefined && airquality == undefined)
     return undefined;
   if (weather != undefined)
-    r = r + util.format(w, taivutusmuoto(weather.city),
+    r = r + util.format(w, weather.city,
                            lukukirjaimiksi(Math.abs(weather.temperature)),
                            asteita(weather.temperature),
                            lampotila(weather.temperature),
