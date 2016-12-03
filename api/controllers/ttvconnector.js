@@ -15,7 +15,7 @@ var weather = function (city, callback) {
       var info = JSON.parse(body);
       info.pages[0].subpages[0].content.split('\n').forEach(function(item){
             if (item.indexOf(city) !== -1) {
-                var weatherInfo = item.split(new RegExp("\[[a-z]{4,}\]"));
+                var weatherInfo = item.split(new RegExp("\\[[a-z]{4}\\]"));
                 var result = {
                     temperature: weatherInfo[2].trim(),
                     windDirection: weatherInfo[3].trim(),
