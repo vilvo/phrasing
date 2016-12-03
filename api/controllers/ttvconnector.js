@@ -13,7 +13,7 @@ var weather = function (city, callback) {
   request(TTV_WEATHER, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var info = JSON.parse(body);
-      info.pages[0].subpages[0].content.split('\n').forEach(function(item){
+      info.pages[0].subpages[0].content.split('\n').some(function(item){
             var weatherInfo = item.split(new RegExp("\\[[a-z]{4}\\]"));
             if ( weatherInfo.length > 1 ) {
                 var cityName = weatherInfo[1].trim();
@@ -25,9 +25,12 @@ var weather = function (city, callback) {
                         city: cityName,
                         clouds: weatherInfo[5].trim().toLowerCase()
                     };
-                    return callback(undefined, result);
+                    callback(undefined, result);
+                    return true;
                 }
             }
+            
+            return false;
       });
       
       }
