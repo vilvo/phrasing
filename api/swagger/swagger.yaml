@@ -14,6 +14,19 @@ basePath: /v1
 produces:
   - application/json
 paths:
+  /stations:
+    # vastaa api/controllers hakemistossa olevaa moduulia
+    x-swagger-router-controller: stations
+    get:
+      # vastaa metodin nimeä kontrolelrissa
+      operationId: getStations
+      summary: List cities that have  weather and/or airquality information.
+      responses:
+        200:
+          description: List of cities.
+          schema:
+            $ref: '#/definitions/Stations'
+    
   /stations/{city}:
     # binds a127 app logic to a route
     # vastaa api/controllers hakemistossa olevaa moduulia
@@ -43,6 +56,11 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 definitions:
+  Stations:
+    type: array
+    items:
+      type: object
+      
   Weather:
     type: object
     properties:
