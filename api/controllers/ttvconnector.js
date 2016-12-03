@@ -13,7 +13,7 @@ var weather = function (city, callback) {
   request(TTV_WEATHER, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var info = JSON.parse(body);
-      
+
       // muuttuja löytyikö säätietoja
       var found = info.pages[0].subpages[0].content.split('\n').some(function(item){
             var weatherInfo = item.split(new RegExp("\\[[a-z]{4}\\]"));
@@ -32,10 +32,10 @@ var weather = function (city, callback) {
                     return true;
                 }
             }
-            
+
             return false;
       });
-      
+
       if ( !found ) {
           // sää tietoja ei löytynyt
           callback( null, { hasWeather: false } );
