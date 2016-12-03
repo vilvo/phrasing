@@ -21,9 +21,9 @@ var weather = function (city, callback) {
                 var cityName = weatherInfo[1].trim();
                 if ( cityName === city ) {
                     var result = {
-                        temperature: weatherInfo[2].trim(),
+                        temperature: Number( weatherInfo[2].trim() ),
                         windDirection: weatherInfo[3].trim(),
-                        windSpeed: weatherInfo[4].trim(),
+                        windSpeed: Number( weatherInfo[4].trim() ),
                         city: cityName,
                         clouds: weatherInfo[5].trim().toLowerCase()
                     };

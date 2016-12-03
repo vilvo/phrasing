@@ -50,13 +50,13 @@ definitions:
         type: string
         description: City of the weather query.
       temperature:
-        type: string
+        type: number
         description: Temperature in celsius.
       windDirection:
         type: string
         description: Direction of the wind in N|NE|E|SE|S|SW|W|NW
       windSpeed:
-        type: string
+        type: integer
         description: Speed of the wind in meters per second.
       clouds:
         type: string
