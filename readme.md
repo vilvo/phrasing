@@ -7,21 +7,21 @@ että rakenteellisena tietona. Palvelu toteuttaa kurssi [Palvelupohjaiset järje
 
 ## Suunnitelma
 
-Phrasing palvelu tarjoaa kyselyrajapinnan jonka tietolähteinä suunnitellaan alustavasti käytettävän [YLEn Teksti-TV APIa](http://apisuomi.fi/shop/json/yle-teksti-tv-api/) tai [Ilmatieteenlaitoksen avoimen datan APIa](https://ilmatieteenlaitos.fi/avoin-data) paikkakuntakohtaiselle säätiedolle sekä [Biomin ilmanlaaturajapintaa](https://www.biomi.org/web/ilmanlaaturajapinta/).
+Phrasing palvelu tarjoaa kyselyrajapinnan jonka tietolähteinä suunnitellaan alustavasti käytettävän [YLEn Teksti-TV APIa](http://apisuomi.fi/shop/json/yle-teksti-tv-api/) paikkakuntakohtaiselle säätiedolle sekä [Biomin ilmanlaaturajapintaa](https://www.biomi.org/web/ilmanlaaturajapinta/).
 
 Phrasing-palvelu yhdistää ja muokkaa tietolähteiden avointa dataa tarjoten sitä sekä fraaseina että rakenteellisesti.
 
 ### Esimerkki
 
 Käyttäjä on kiinnostunut paikkakuntansa säästä ja ilmanlaadusta. Hän haluaa tiedoista ihmisen ymmärtämän, koneluettavan fraasin ja lisäksi yksityiskohtaiset tiedot lähempää tarkastelua varten. Palvelu palauttaa kyselystä esimerkiksi fraasin:
-> Sää tänään Tampereella: pakkasta neljä astetta, tuuli etelästä neljä metriä sekunnissa, pilvistä. Ilmanlaatu on hyvä."
+> Tampere: pakkasta neljä astetta, tuuli etelästä neljä metriä sekunnissa, pilvistä. Ilmanlaatu on hyvä."
 
 Lisäksi sää- ja ilmanlaatutietojen yksityiskohdat on saatavissa JSON-muodossa.
 
 ### Query-parametrit (alustava)
 
 * `cityname` - paikkakunnan nimi, vaihtoehtoinen `coordinates`:n kanssa
-* `coordinates` - sijainnin koordinaatit, vaihtoehtoinen `cityname`:n kanssa 
+* `coordinates` - sijainnin koordinaatit, vaihtoehtoinen `cityname`:n kanssa
 ... `cityname` käytetään suoraan tietolähteiden kanssa
 ... `coordinates` saatetaan mäpätä paikkakunnaksi karttarajapintoja käyttäen tai toteuttaa mockkina.
 * `weather` - true tai false - kysytäänkö säätietoa vai ei
@@ -41,8 +41,8 @@ Lisäksi suunniteltiin HTTP headerin Accept-kentän käyttöä määrittämään
 
 node.js + Express, Heroku
 Dokumentaatio: swagger.io
-Testit + CI + deployment (avoin)
+testit + continuous deployment
 
-### Client-demot (alustava)
+### Client-demo
 
-Paluuarvojen muuttaminen ääneksi puhesynteesin kautta - esim. https://developers.google.com/web/updates/2014/01/Web-apps-that-talk-Introduction-to-the-Speech-Synthesis-API -> "Ääni"
+[Paluuarvojen muuttaminen ääneksi puhesynteesin kautta selain-clientissa](https://phrasing-weather.herokuapp.com/client/) 
