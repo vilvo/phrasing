@@ -52,6 +52,12 @@ function getAirqualityForStation( station, callback ) {
     });
 }
 
+// palauta lista kaupungeista, joista saa ilmanlaatu tietoja
+function getStations() {
+    return Object.keys( stations );
+}
+
 module.exports = {
-    getAirqualityForCity: getAirqualityForCity
+    getAirqualityForCity: getAirqualityForCity,
+    getStations: getStations
 };
