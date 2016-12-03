@@ -25,7 +25,8 @@ var weather = function (city, callback) {
                         windDirection: weatherInfo[3].trim(),
                         windSpeed: Number( weatherInfo[4].trim() ),
                         city: cityName,
-                        clouds: weatherInfo[5].trim().toLowerCase()
+                        clouds: weatherInfo[5].trim().toLowerCase(),
+                        hasWeather: true
                     };
                     callback(undefined, result);
                     return true;
@@ -37,7 +38,7 @@ var weather = function (city, callback) {
       
       if ( !found ) {
           // sää tietoja ei löytynyt
-          callback( null, null );
+          callback( null, { hasWeather: false } );
       }
       }
     });

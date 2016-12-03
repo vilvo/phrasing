@@ -17,13 +17,23 @@ function getData(req, res) {
         if ( err ) {
             return res.send( { message: err.message });
         }
-
-        // tarkista jos ei löydetty kumpiakaan tietoja 
-        if ( results.weather === null && results.airquality.length === 0 ) {
-            return res.send( { phrase: "Tietoja ei löytynyt kaupungille " +city +"."  });
+        
+        if ( results.airquality.length === 0 ) {
+            results.weather.hasAirquality = false;
+        }
+        
+        else {
+            results.weather.hasAirquality = true;
         }
         
         results.weather.airquality = results.airquality;
+
+        // tarkista jos ei löydetty kumpiakaan tietoja 
+        if ( !results.weather.hasWeather && !results.weather.hasAirquality ) {
+            results.weather.phrase = "Tietoja ei löytynyt kaupungille " +city +".";
+            return res.send( results.weather );
+        }
+        
         results.weather.phrase = phrasing.phrase(results.weather,
                                                  results.airquality);
         res.send( results.weather );

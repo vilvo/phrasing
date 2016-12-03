@@ -83,7 +83,7 @@ var phrase = function (weather, airquality) {
   var r = '';
   if (weather == undefined && airquality == undefined)
     return undefined;
-  if (weather != undefined)
+  if (weather.hasWeather )
     r = r + util.format(w, weather.city,
                            lukukirjaimiksi(Math.abs(weather.temperature)),
                            asteita(weather.temperature),
