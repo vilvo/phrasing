@@ -18,6 +18,11 @@ function getData(req, res) {
             return res.send( { message: err.message });
         }
 
+        // tarkista jos ei löydetty kumpiakaan tietoja 
+        if ( results.weather === null && results.airquality.length === 0 ) {
+            return res.send( { phrase: "Tietoja ei löytynyt kaupungille " +city +"."  });
+        }
+        
         results.weather.airquality = results.airquality;
         results.weather.phrase = phrasing.phrase(results.weather,
                                                  results.airquality);
