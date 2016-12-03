@@ -40,5 +40,18 @@ function getData(req, res) {
         res.send( results.weather );
     });
 }
-
+/*
+function getStations(req, res) {
+  async.parallel( {
+      stations: function ( callback ) {
+          ttv.stations( callback );
+      }, function (err, results) {
+        if (err)
+          return res.send({message:err.message});
+      }
+      console.log(results.stations);
+      res.send(results.stations);
+  });
+}
+*/
 module.exports = { getData: getData };
