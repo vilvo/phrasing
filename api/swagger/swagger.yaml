@@ -23,7 +23,7 @@ paths:
       summary: List cities that have  weather and/or airquality information.
       responses:
         200:
-          description: List of cities.
+          description: Response contains city names as keys. Each city object has boolean properties hasAirquality and hasWeather
           schema:
             $ref: '#/definitions/Stations'
     
@@ -60,6 +60,9 @@ definitions:
     type: object
     additionalProperties:
        type: object
+       required:
+          - hasWeather
+          - hasAirquality
        properties:
           hasAirquality:
              type: boolean
