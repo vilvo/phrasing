@@ -4,27 +4,35 @@
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 </head>
 <body ng-app="ExampleApp" ng-cloak>
+
+		<!-- Angular Material requires Angular.js Libraries -->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+
 	<div ng-controller="pageCtrl">
-		<md-list>
-			<md-list-item ng-repeat="city in cities track by $index">
-				<p> {{ city }} </p>
-				<!-- <md-checkbox class="md-secondary"></md-checkbox> -->
-			</md-list-item>
-		</md-list>
+	  <md-header class="md-no-sticky">Sää- ja ilmanlaatuasemat</md-header>
+
+		<md-list-item ng-repeat="phrase in phrases track by $index">
+	    <p> {{ phrase }} </p>
+	  </md-list-item>
 
 		<md-input-container class="md-block" flex-gt-sm>
-			<label>Paikkakunta</label>
+			<label>Hae paikkakuntaa</label>
 			<input ng-model="textInput">
+			<md-button ng-click="fetchPhrase()" class="md-raised md-primary">Hae fraasi</md-button>
+			<md-button ng-click="clearPhrases()" class="md-raised md-primary">Tyhjennä fraasit</md-button>
 		</md-input-container>
-		<md-button ng-click="fetchPhrase()" class="md-raised md-primary">Hae fraasi</md-button>
-		<!-- <md-button ng-click="fetchItems()" class="md-raised md-primary">Fetch orders</md-button> -->
-	</div>
 
-	<!-- Angular Material requires Angular.js Libraries -->
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+		<md-divider></md-divider>
+
+	  <md-list-item ng-repeat="station in stations" class="secondary-button-padding" ng-click="doPrimaryAction($event, station.name)">
+	    <p> {{ station.name }}</p>
+	    <md-button class="md-secondary" ng-click="doSecondaryAction($event, station.name )">Sano sää ääneen</md-button>
+	  </md-list-item>
+	</div>
 
 	<!-- Angular Material Library -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
@@ -33,59 +41,90 @@
 	<script type="text/javascript">
 		var app = angular.module('ExampleApp', ['ngMaterial']);
 
-		app.controller("pageCtrl", function($scope, $http) {
-			$scope.cities = []; //"Helsinki", "Tampere"];
+		app.controller("pageCtrl", function($scope, $http, $mdDialog) {
+			$scope.phrases = [];
+
+			function getPhrase(city, callback) {
+				$http({
+					method: 'GET',
+					url: window.location.origin+'/v1/stations/' + city
+				}).then(function successCallback(response) {
+						callback(response.data.phrase);
+				}, function errorCallback(response) {
+						callback("Fraasin haku epäonnistui:" + response);
+				});
+			}
+
+			function getData(city, callback) {
+				$http({
+					method: 'GET',
+					url: window.location.origin+'/v1/stations/' + city
+				}).then(function successCallback(response) {
+						callback(response.data);
+				}, function errorCallback(response) {
+						callback("Data haku epäonnistui:" + response);
+				});
+			}
+
+			function speakPhrase(phrase) {
+				if ('speechSynthesis' in window) {
+					var voices = window.speechSynthesis.getVoices();
+					var msg = new SpeechSynthesisUtterance();
+					msg.voice = voices[4]; // spanish
+					msg.voiceURI = 'native';
+					msg.volume = 1; // 0 to 1
+					msg.rate = 0.9; // 0.1 to 10
+					msg.pitch = 1; //0 to 2
+					msg.text = phrase;
+					msg.lang = 'en-US';
+					speechSynthesis.speak(msg);
+				}
+			}
+
 			/*
 			 * Documentation https://docs.angularjs.org/api/ng/service/$http
 			 */
 			$scope.fetchPhrase = function () {
-				var city = $scope.textInput;
-				$http({
-				  method: 'GET',
-				  url: window.location.origin+'/v1/stations/' + city
-				}).then(function successCallback(response) {
-						$scope.cities.unshift(response.data.phrase);
-						if ('speechSynthesis' in window) {
-							var voices = window.speechSynthesis.getVoices();
-							var msg = new SpeechSynthesisUtterance();
-							msg.voice = voices[4]; // spanish
-							msg.voiceURI = 'native';
-							msg.volume = 1; // 0 to 1
-							msg.rate = 0.9; // 0.1 to 10
-							msg.pitch = 1; //0 to 2
-							msg.text = response.data.phrase;
-							msg.lang = 'en-US';
-							speechSynthesis.speak(msg);
-						}
-				  }, function errorCallback(response) {
-				    // called asynchronously if an error occurs
-				    // or server returns response with an error status.
-				  });
-
+				getPhrase($scope.textInput, function(phrase) {
+					$scope.phrases.unshift(phrase);
+			});
+			$scope.clearPhrases = function () {
+					$scope.phrases = [];
+			};
 				$scope.textInput = "";
 			}
 
-			$scope.fetchItems = function () {
-				/*
-				 * Rest interface documentation for mongodb: https://docs.mongodb.com/ecosystem/tools/http-interfaces/#simple-rest-api
-				 * Remember --rest command line switch!
-				 */
-				$http.get(window.location.href+'ordersDB/orders/?filter_ordered=true').then(function(response) {
-					// Get data
-					content = angular.fromJson(response.data);
+			$http({
+				method: 'GET',
+				url: window.location.origin+'/v1/stations/'
+			}).then(function successCallback(response) {
+				$scope.stations = Object.keys(response.data).map(function (key) {
+					return { name:key }; });
+			}, function errorCallback(response) {
+				return "Tietojen haku rajapinnasta epäonnistui";
+			});
 
-					// Prepare array for switch to avoid multiple angular digests
-					var newRows = [];
-
-					// Push content
-					content.rows.forEach(function(row) {
-						newRows.push(row.name);
+			$scope.doPrimaryAction = function(event, station) {
+				getData(station, function(data) {
+					$mdDialog.show({
+						template:'<div style="padding: 10px 10px 10px 10px;">' +
+										 '<h2>' + data.city + '</h2>' +
+										 '<p>Lämpötila: ' + data.temperature + '</p>' +
+										 '<p>Tuulensuunta: ' + data.windDirection + '</p>' +
+										 '<p>Tuulennopeus: ' + data.windSpeed + " m/s" + '</p>' +
+										 '<p>Pilvisyys: ' + data.clouds + " m/s" + '</p>' +
+										 '<p>Ilmanlaatu: ' + data.airquality[0].FI + '</p></div>',
+						clickOutsideToClose: true
 					});
-
-					// Swap content
-					$scope.orders = newRows;
 				});
-			}
+
+			};
+
+			$scope.doSecondaryAction = function(event, station) {
+				getPhrase(station, function(phrase) {
+					speakPhrase(phrase);
+				});
+			};
 		});
 		</script>
 </body>
