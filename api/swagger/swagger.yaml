@@ -57,9 +57,7 @@ paths:
             $ref: '#/definitions/Error'
 definitions:
   Stations:
-    type: array
-    items:
-      type: object
+    type: object
       
   Weather:
     type: object
