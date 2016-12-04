@@ -5,9 +5,7 @@
 Palvelu tarjoaa REST-rajapinnan kautta sää- ja ilmanlaatutietoa sekä fraaseina
 että rakenteellisena tietona. Palvelu toteuttaa kurssi [Palvelupohjaiset järjestelmät](http://palpo.github.io/)-harjoitustyön.
 
-## Suunnitelma
-
-Phrasing palvelu tarjoaa kyselyrajapinnan jonka tietolähteinä suunnitellaan alustavasti käytettävän [YLEn Teksti-TV APIa](http://apisuomi.fi/shop/json/yle-teksti-tv-api/) paikkakuntakohtaiselle säätiedolle sekä [Biomin ilmanlaaturajapintaa](https://www.biomi.org/web/ilmanlaaturajapinta/).
+Phrasing palvelu tarjoaa kyselyrajapinnan jonka tietolähteinä käytetään  [YLEn Teksti-TV APIa](http://apisuomi.fi/shop/json/yle-teksti-tv-api/) paikkakuntakohtaiselle säätiedolle sekä [Biomin ilmanlaaturajapintaa](https://www.biomi.org/web/ilmanlaaturajapinta/).
 
 Phrasing-palvelu yhdistää ja muokkaa tietolähteiden avointa dataa tarjoten sitä sekä fraaseina että rakenteellisesti.
 
@@ -18,31 +16,16 @@ Käyttäjä on kiinnostunut paikkakuntansa säästä ja ilmanlaadusta. Hän halu
 
 Lisäksi sää- ja ilmanlaatutietojen yksityiskohdat on saatavissa JSON-muodossa.
 
-### Query-parametrit (alustava)
+## Toteutus
 
-* `cityname` - paikkakunnan nimi, vaihtoehtoinen `coordinates`:n kanssa
-* `coordinates` - sijainnin koordinaatit, vaihtoehtoinen `cityname`:n kanssa
-... `cityname` käytetään suoraan tietolähteiden kanssa
-... `coordinates` saatetaan mäpätä paikkakunnaksi karttarajapintoja käyttäen tai toteuttaa mockkina.
-* `weather` - true tai false - kysytäänkö säätietoa vai ei
-* `airquality` - true tai false - kysytäänkö ilmanlaatua vai ei
-* `language` - FI|EN - standardit kielikoodit
-* `detailed` - true tai false - palautetaanko yksityiskohtainen data vai ei
-* `phrase` - true tai false - palautetaanko fraasi vai ei
+Phrasing palvelu on toteutettu node.js alustalle. Se käyttää [express](http://expressjs.com) web ohjelma kehystä. Toteutus pohjautuu [swagger node](https://github.com/swagger-api/swagger-node) moduuliin, joka integroi [Swagger](http://swagger.io) rajapintakuvauskielen osaksi palvelua. Palvelun rajapinta on kuvattu swaggerilla ja swagger node huolehtii kuvausten mukaisesta pyyntöjen reitityksestä sekä pyyntöjen ja vastausten validoinnista. Palvelun dokumentaation esittämiseen käytetään palveluun integroitua selainpohjaista [Swagger UI](http://swagger.io/swagger-ui/) komponenttia. Ohjelman eräälle moduulile on toteutettu yksikkötestit [mocha](https://mochajs.org) testikehyksellä.
 
-Lisäksi suunniteltiin HTTP headerin Accept-kentän käyttöä määrittämään hyväksyttävät vastaustyypit. Esimerkiksi `Accept: text/plain` pelkät vastaustiedot kun taas `Accept: application/JSON` palauttaisi vastaustiedot JSON-muodossa.
+Phrasing palvelu on ajossa [Heroku](https://heroku.com/) palvelussa. Herokua varten on tehty automaattinen deployment tästä Github repositorysta. Kun master haaraan lisätään uutta sisältöä, päivitetään tämä uusin versio automaatisesti Herokuun.
 
-#### Huomioita query-parametreistä ja paluuarvoista
+## Client-demo
 
-* HTTP 400 (bad request) -> detailed(true) + phrase(true) with accept: text/plain
-* HTTP 400 (bad request) -> detailed(false) + phrase (false)
+[Paluuarvojen muuttaminen ääneksi puhesynteesin kautta selain-clientissa](https://phrasing-weather.herokuapp.com/client/) Client on osa phrasing palvelua ja on toteutettu [angular.js](https://angularjs.org) käyttöliittymä kehyksellä.
 
-### Toteutus
+## Rajapinta dokumentaatio
 
-node.js + Express, Heroku
-Dokumentaatio: swagger.io
-testit + continuous deployment
-
-### Client-demo
-
-[Paluuarvojen muuttaminen ääneksi puhesynteesin kautta selain-clientissa](https://phrasing-weather.herokuapp.com/client/) 
+Phrasing palvelun rajapinta on dokumentoitu swagger kuvauskielellä ja löytyy [](api/swagger/swagger.yaml) tiedostosta. Phrasing palvleu tarjoaa dokumentaatiosta [selaimella luettavan version](http://phrasing-weather.herokuapp.com/docs/). 
