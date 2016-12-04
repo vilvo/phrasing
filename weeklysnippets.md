@@ -1,5 +1,11 @@
 # Oppimispäiväkirja
 
+## viikko 28.11.-4.12.
+
+* next: pieniä viilauksia ja koodin kommentointia palautuksen lisäajalla
+* done: clientin toteutus, sääasemien listaus APIn kautta (VI)
+* done: swagger node-dokumentaatiota, parempaa virheidenkäsittelyä, ilmanlaatuasemien listaus APIn kautta (OH)
+
 ## viikko 21.11.-27.11.
 
 * next: clientin toteutus, parempi virheiden käsittely
