@@ -106,14 +106,20 @@
 
 			$scope.doPrimaryAction = function(event, station) {
 				getData(station, function(data) {
+					console.log(data);
+					var temp = (typeof data.temperature !== 'undefined') ? data.temperature : "Ei saatavilla";
+					var wD = (typeof data.windDirection !== 'undefined') ? data.windDirection : "Ei saatavilla";
+					var wS = (typeof data.windSpeed !== 'undefined') ? data.windSpeed + " m/s" : "Ei saatavilla";
+					var clouds = (typeof data.clouds !== 'undefined') ? data.clouds : "Ei saatavilla";
+					var aq = (data.airquality.length != 0) ? data.airquality[0].FI : "Ei saatavilla";
 					$mdDialog.show({
 						template:'<div style="padding: 10px 10px 10px 10px;">' +
-										 '<h2>' + data.city + '</h2>' +
-										 '<p>Lämpötila: ' + data.temperature + '</p>' +
-										 '<p>Tuulensuunta: ' + data.windDirection + '</p>' +
-										 '<p>Tuulennopeus: ' + data.windSpeed + " m/s" + '</p>' +
-										 '<p>Pilvisyys: ' + data.clouds + " m/s" + '</p>' +
-										 '<p>Ilmanlaatu: ' + data.airquality[0].FI + '</p></div>',
+										 '<h2>' + station + '</h2>' +
+										 '<p>Lämpötila: ' + temp + '</p>' +
+										 '<p>Tuulensuunta: ' + wD + '</p>' +
+										 '<p>Tuulennopeus: ' + wS + '</p>' +
+										 '<p>Pilvisyys: ' + clouds + '</p>' +
+										 '<p>Ilmanlaatu: ' + aq + '</p></div>',
 						clickOutsideToClose: true
 					});
 				});
