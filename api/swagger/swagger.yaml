@@ -58,7 +58,16 @@ paths:
 definitions:
   Stations:
     type: object
-      
+    additionalProperties:
+       type: object
+       properties:
+          hasAirquality:
+             type: boolean
+             description: does the city have airquality information available
+          hasWeather:
+             type: boolean
+             description: does the city have weather  information available
+
   Weather:
     type: object
     properties:
