@@ -68,7 +68,7 @@ var stations = function (callback) {
         })
       });
     }
-    callback(s);
+    callback( null, s);
   });
 };
 
