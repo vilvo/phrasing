@@ -40,28 +40,25 @@ describe('phrasing', function() {
           windDirection: 'NW',
           windSpeed: 4,
           city: 'Tampere',
-          clouds: 'lumisadetta'
-      };
+          clouds: 'lumisadetta',
+          hasWeather: true
+      }
       const s = "Tampere: yksi aste pakkasta, " +
                 "tuuli luoteesta neljä metriä sekunnissa, lumisadetta."
-      assert.equal(s, phrasing.phrase(T1), undefined);
+      assert.equal(s, phrasing.phrase(T1, undefined));
     });
     it('should phrase with const input data T2', function() {
       const T2 = {
-          temperature: -1,
-          windDirection: 'N',
-          windSpeed: 6,
-          city: 'Turku',
-          clouds: 'melk.pilvistä'
-      };
+        temperature: -1,
+        windDirection: 'N',
+        windSpeed: 6,
+        city: 'Turku',
+        clouds: 'melk.pilvistä',
+        hasWeather: true
+      }
       const s = "Turku: yksi aste pakkasta, " +
                 "tuuli pohjoisesta kuusi metriä sekunnissa, melko pilvistä."
-      assert.equal(s, phrasing.phrase(T2), undefined);
-    });
-    it('should phrase with const air quality data', function(){
-      const AQ = [ { time: 11, index: 1, FI: "hyvä", EN: "good",
-                     error: false, station: "Linja-autoasema" } ]
-      assert.equal("Ilmanlaatu on hyvä.", phrasing.phrase(undefined, AQ));
+      assert.equal(s, phrasing.phrase(T2, undefined));
     });
   });
 });
