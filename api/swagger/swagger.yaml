@@ -26,6 +26,14 @@ paths:
           description: Response contains city names as keys. Each city object has boolean properties hasAirquality and hasWeather
           schema:
             $ref: '#/definitions/Stations'
+          examples:
+             application/json:
+                Tampere:
+                   hasAirquality: true
+                   hasWeather: true
+                Espoo:
+                   hasWeather: false
+                   hasAirquality: true
         default:
           description: Unexpected error
           schema:
