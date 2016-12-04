@@ -18,14 +18,14 @@ Lisäksi sää- ja ilmanlaatutietojen yksityiskohdat on saatavissa JSON-muodossa
 
 ## Toteutus
 
-Phrasing palvelu on toteutettu node.js alustalle. Se käyttää [express](http://expressjs.com) web ohjelma kehystä. Toteutus pohjautuu [swagger node](https://github.com/swagger-api/swagger-node) moduuliin, joka integroi [Swagger](http://swagger.io) rajapintakuvauskielen osaksi palvelua. Palvelun rajapinta on kuvattu swaggerilla ja swagger node huolehtii kuvausten mukaisesta pyyntöjen reitityksestä sekä pyyntöjen ja vastausten validoinnista. Palvelun dokumentaation esittämiseen käytetään palveluun integroitua selainpohjaista [Swagger UI](http://swagger.io/swagger-ui/) komponenttia. Ohjelman eräälle moduulile on toteutettu yksikkötestit [mocha](https://mochajs.org) testikehyksellä.
+Phrasing palvelu on toteutettu node.js alustalle. Se käyttää [express](http://expressjs.com) web-kehystä. Toteutus pohjautuu [swagger node](https://github.com/swagger-api/swagger-node)-moduuliin, joka integroi [Swagger](http://swagger.io) rajapintakuvauskielen osaksi palvelua. Palvelun rajapinta on kuvattu swaggerilla ja swagger node huolehtii kuvausten mukaisesta pyyntöjen reitityksestä sekä pyyntöjen ja vastausten validoinnista. Palvelun dokumentaation esittämiseen käytetään palveluun integroitua selainpohjaista [Swagger UI](http://swagger.io/swagger-ui/) komponenttia. Ohjelman eräälle fraaseja tuottavalle moduulille on toteutettu yksikkötestit [mocha](https://mochajs.org)-testikehyksellä.
 
-Phrasing palvelu on ajossa [Heroku](https://heroku.com/) palvelussa. Herokua varten on tehty automaattinen deployment tästä Github repositorysta. Kun master haaraan lisätään uutta sisältöä, päivitetään tämä uusin versio automaatisesti Herokuun.
+Phrasing-palvelu on ajossa [Heroku](https://phrasing-weather.herokuapp.com/client/)-palvelussa. Herokua varten on tehty automaattinen deployment tästä Github repositorysta. Kun master-haaraan lisätään uutta sisältöä, uusin versio päivittyy automaatisesti Herokuun.
 
 ## Client-demo
 
-[Paluuarvojen muuttaminen ääneksi puhesynteesin kautta selain-clientissa](https://phrasing-weather.herokuapp.com/client/) Client on osa phrasing palvelua ja on toteutettu [angular.js](https://angularjs.org) käyttöliittymä kehyksellä.
+[Paluuarvojen muuttaminen ääneksi puhesynteesin kautta selain-clientissa](https://phrasing-weather.herokuapp.com/client/) Client on osa phrasing-palvelua ja on toteutettu [angular.js](https://angularjs.org)-käyttöliittymäkehyksellä.
 
 ## Rajapinta dokumentaatio
 
-Phrasing palvelun rajapinta on dokumentoitu swagger kuvauskielellä ja löytyy [](api/swagger/swagger.yaml) tiedostosta. Phrasing palvleu tarjoaa dokumentaatiosta [selaimella luettavan version](http://phrasing-weather.herokuapp.com/docs/). 
+Phrasing-palvelun rajapinta on dokumentoitu swagger-kuvauskielellä ja löytyy [](api/swagger/swagger.yaml) tiedostosta. Phrasing-palvelu tarjoaa dokumentaatiosta [selaimella luettavan version](http://phrasing-weather.herokuapp.com/docs/).
