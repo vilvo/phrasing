@@ -4,7 +4,7 @@
 
 * next: pieniä viilauksia ja koodin kommentointia palautuksen lisäajalla
 * done: clientin toteutus, sääasemien listaus APIn kautta (VI)
-* done: swagger node-dokumentaatiota, parempaa virheidenkäsittelyä, ilmanlaatuasemien listaus APIn kautta (OH)
+* done: swagger node-dokumentaatiota, swagger UI:n integrointi, parempaa virheidenkäsittelyä, ilmanlaatuasemien listaus APIn kautta (OH)
 
 ## viikko 21.11.-27.11.
 
