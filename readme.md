@@ -26,6 +26,6 @@ Phrasing-palvelu on ajossa [Heroku](https://phrasing-weather.herokuapp.com/clien
 
 [Paluuarvojen muuttaminen ääneksi puhesynteesin kautta selain-clientissa](https://phrasing-weather.herokuapp.com/client/) Client on osa phrasing-palvelua ja on toteutettu [angular.js](https://angularjs.org)-käyttöliittymäkehyksellä.
 
-## Rajapinta dokumentaatio
+## Rajapinnan dokumentaatio
 
 Phrasing-palvelun rajapinta on dokumentoitu swagger-kuvauskielellä ja löytyy [](api/swagger/swagger.yaml) tiedostosta. Phrasing-palvelu tarjoaa dokumentaatiosta [selaimella luettavan version](http://phrasing-weather.herokuapp.com/docs/).
