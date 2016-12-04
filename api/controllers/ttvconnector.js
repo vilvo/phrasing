@@ -58,7 +58,7 @@ var stations = function (callback) {
   request(TTV_WEATHER, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var info = JSON.parse(body);
-      info.pages[0].subpages.forEach(function(subpage){
+      info.pages[0].subpages.slice(0,1).forEach(function(subpage){
         subpage.content.split('\n').forEach(function(item){
           var weatherInfo = item.split(new RegExp("\\[[a-z]{4}\\]"));
           // TTV APIn sivut on ascii-dataa josta pitää poimia
