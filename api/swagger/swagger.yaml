@@ -48,8 +48,6 @@ paths:
           description: City of the weather info.
           required: true
           type: string
-      tags:
-        - Details
       responses:
         200:
           description: An object containing weather and airquality info for the city
