@@ -42,10 +42,10 @@ paths:
   /stations/{city}:
     # binds a127 app logic to a route
     # vastaa api/controllers hakemistossa olevaa moduulia
-    x-swagger-router-controller: api
+    x-swagger-router-controller: measurements
     get:
       summary: Weather and air quality info
-      # vastaa api moduulin funktiota
+      # vastaa measurements moduulin funktiota
       operationId: getData
       description: |
         The weather endpoint returns information about the weather and air quality.
