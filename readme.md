@@ -29,3 +29,29 @@ Phrasing-palvelu on ajossa [Heroku](https://phrasing-weather.herokuapp.com/clien
 ## Rajapinnan dokumentaatio
 
 Phrasing-palvelun rajapinta on dokumentoitu swagger-kuvauskielellä ja löytyy [](api/swagger/swagger.yaml) tiedostosta. Phrasing-palvelu tarjoaa dokumentaatiosta [selaimella luettavan version](http://phrasing-weather.herokuapp.com/docs/).
+
+## Asennus
+
+Phrasing-palvelun hakemiseen ja ajamiseen tarvitset gitin, node.js:n sekä NPM:n. Tarvitset myös YLEn Teksti-tv rajapintaa varten API avaimen, jonka saa YLEltä. Hakeaksesi ja käynnistääksesi palvelun suorita seuraavat kommennot:
+
+```bash
+# hae koodi githubista ja siirry sen hakemistoon
+git clone https://github.com/vilvo/phrasing.git
+cd phrasing
+# asenna ohjelman riippuvuudet
+npm install
+# valinnainen asenna swagger node komentorivi
+npm install -g swagger
+# aseta YLE Teksti-tv api avaimesi ympäristömuuttujaan, josta ohjelma sen lukee (windows komentorivi komento on eri)
+export TTV_KEY=avain
+# käynnistä ohjelma swagger nodella
+swagger project start
+# vaihtoehtoisesti käynnistä ilman swagger nodea
+node app.js
+```
+
+Palvelu toimii oletuksena portissa 10010. Tätä voi muuttaa asettamalla haluamansa portin ympäristömuuttujaan PORT. Palvelun käynnistyttyä voit käyttää clienttiä osoitteessa <http://localhost:10010/client>. Rajapintadokumentaatio löytyy osoitteesta <http://localhost:10010/docs>. Yksikötestit voit suorittaa mochalla komennolla:
+
+```
+node_modules/mocha/bin/mocha
+```
