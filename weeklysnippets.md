@@ -1,5 +1,9 @@
 # Oppimispäiväkirja
 
+## viikko 5.12.-11.12.
+
+* done: asennusohjieta readme:hen, koodin kommentointia (OH)
+
 ## viikko 28.11.-4.12.
 
 * next: pieniä viilauksia ja koodin kommentointia palautuksen lisäajalla
