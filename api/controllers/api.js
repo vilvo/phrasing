@@ -20,6 +20,7 @@ function getData(req, res) {
         if ( err ) {
             // jompi kumpi operaatio epäonnistui
             // katsotaan koko homma epäonnistuneeksi
+            res.status( 500 );
             return res.send( { message: err.message });
         }
         
