@@ -31,7 +31,7 @@ function lukukirjaimiksi(luku) {
       asteet = asteet + yksikotmap[ykkoset];
     return asteet;
   }
-  return undefined;
+  return undefined; // yli 99 asteen sää, format korvaa sen "undefined"
 }
 
 function asteita(lampo) {
@@ -84,6 +84,7 @@ var phrase = function (weather, airquality) {
   if (weather == undefined && airquality == undefined)
     return undefined;
   if (weather.hasWeather )
+    // format korvaa undefined tiedot stringillä "undefined"
     r = r + util.format(w, weather.city,
                            lukukirjaimiksi(Math.abs(weather.temperature)),
                            asteita(weather.temperature),
