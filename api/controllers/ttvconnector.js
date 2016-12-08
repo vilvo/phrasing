@@ -44,10 +44,12 @@ var weather = function (city, callback) {
       });
 
       if ( !found ) {
-          // sää tietoja ei löytynyt
+          // säätietoja ei löytynyt
           callback( null, { hasWeather: false } );
       }
-      }
+    } else {
+      return callback( new Error( response.statusCode +' status from TTV API'))
+    }
     });
 };
 
